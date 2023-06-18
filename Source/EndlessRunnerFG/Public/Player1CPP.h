@@ -30,12 +30,17 @@ class ENDLESSRUNNERFG_API APlayer1CPP : public ACharacter
 public:
 	// Sets default values for this character's properties
 	APlayer1CPP();
+	
 	//Player lives
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Lives)
 	int Lives;
+	//Projectile Spawn Timer
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=ProjectileSpawn)
+	float ProjectileSpawnTime = 10;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
+
 
 protected:
 	// Called when the game starts or when spawned

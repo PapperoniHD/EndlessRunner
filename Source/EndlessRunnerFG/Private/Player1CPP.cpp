@@ -17,16 +17,17 @@ APlayer1CPP::APlayer1CPP()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
-	GetCharacterMovement()->JumpZVelocity = 1500.f;
+	
+	
+	GetCharacterMovement()->JumpZVelocity = 3000.f;
 	GetCharacterMovement()->AirControl = 0.35f;
-	GetCharacterMovement()->MaxWalkSpeed = 500.f;
-	GetCharacterMovement()->GravityScale = 4.f;
+	GetCharacterMovement()->MaxWalkSpeed = 1000.f;
+	GetCharacterMovement()->GravityScale = 6.f;
 
 	// Create a camera boom (pulls in towards the player if there is a collision)
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(RootComponent);
-	CameraBoom->TargetArmLength = 800.0f; // The camera follows at this distance behind the character	
+	CameraBoom->TargetArmLength = 1200.0f; // The camera follows at this distance behind the character	
 	//CameraBoom->bUsePawnControlRotation = true; // Rotate the arm based on the controller
 
 	// Create a follow camera
@@ -41,6 +42,7 @@ void APlayer1CPP::BeginPlay()
 {
 	Super::BeginPlay();
 
+	
 	Lives = 3;
 	
 	//Add Input Mapping Context
